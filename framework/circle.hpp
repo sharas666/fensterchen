@@ -3,10 +3,10 @@
 #include "point2d.cpp"
 #define _USE_MATH_DEFINES
 #include <cmath>
-//#include "window.hpp"
+#include "window.hpp"
 
 
-class Circle{
+class Circle : public Shape{
 
 	public:
 		Circle();
@@ -18,16 +18,16 @@ class Circle{
 		Point2d mid() const;
 		ColorRGB color() const;
 		double circumference() const;
-		//void draw(Window const& k) const;
-		//void draw(Window const& k, ColorRGB color) const;
-		bool is_inside(Point2d const& p) const;
+		void draw(Window const& k) const /*override*/;
+		void draw(Window const& k, ColorRGB color) const /*override*/;
+		bool is_inside(Point2d const& p) const /*override*/;
 		bool operator<(Circle const&)const;
 		bool operator>(Circle const&)const;
 
 	private:
-		double radius_;
-		Point2d mid_;
-		ColorRGB color_;
+		double m_radius_;
+		Point2d m_mid_;
+		
 
 };
 #endif

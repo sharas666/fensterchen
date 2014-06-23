@@ -5,7 +5,7 @@
 #include "window.hpp"
 #include "point2d.hpp"
 
-class Rectangle{
+class Rectangle : public Shape{
 
 	public:
 		Rectangle();
@@ -19,16 +19,15 @@ class Rectangle{
 		double angle() const;
 		ColorRGB color() const;
 		double circumference() const;
-		void draw(Window const&) const;
-		void draw(Window const&, ColorRGB) const;
-		bool is_inside(Point2d const& p) const;
+		void draw(Window const&) const /*override*/;
+		void draw(Window const&, ColorRGB) const /*override*/;
+		bool is_inside(Point2d const& p) const /*override*/;
 
 	private:
-		Point2d left_bottom_corner_;
-		double angle_;
-		double sidelength_a;
-		double sidelength_b;
-		ColorRGB color_;
-
+		Point2d m_left_bottom_corner_;
+		double m_angle_;
+		double m_sidelength_a;
+		double m_sidelength_b;
+		
 };
 #endif

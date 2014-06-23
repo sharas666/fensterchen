@@ -2,48 +2,52 @@
 
 
 Circle::Circle():
-	radius_{1},
-	mid_{0.0,0.0},
-	color_{0}
-{};
+	Shape{"standard_constructed_circle",{0,0,0}},
+	m_radius_{1},
+	m_mid_{0.0,0.0}
+	
+{}
 
-Circle::Circle(double const& rad, Point2d const& m):
-	radius_{rad},
-	mid_{m},
-	color_{0}
-{};
+Circle::Circle(double const& rad, Point2d const& m, std::string name):
+	Shape{name},
+	m_radius_{rad},
+	m_mid_{m}
+	
+{}
 
-Circle::Circle(double const& rad):
-	radius_{rad},
-	mid_{0.0,0.0},
-	color_{0}
-{};
+Circle::Circle(double const& rad, std::string name):
+	Shape{name},
+	m_radius_{rad},
+	m_mid_{0.0,0.0}
+	
+{}
 
-Circle::Circle(double const& rad, Point2d const& m, ColorRGB const& c):
-	radius_{rad},
-	mid_{m},
-	color_{c}
-{};
+Circle::Circle(double const& rad, Point2d const& m, ColorRGB const& c, std::string name):
+	Shape{name,c},
+	m_radius_{rad},
+	m_mid_{m}
+	
+{}
 Circle::~Circle(){};
 
 double Circle::r() const{
-	return Circle::radius_;
+	return Circle::m_radius_;
 }
 
 Point2d Circle::mid() const{
-	return Circle::mid_;
+	return Circle::m_mid_;
 }
 
 ColorRGB Circle::color() const{
-	return color_;
+	return m_color_;
 }
 
 double Circle::circumference() const{
-	return 2*M_PI*radius_;
+	return 2*M_PI*m_radius_;
 }
 
-bool Circle::is_inside(Point2d const& p) const{
-	if(sqrt(pow(p.x()-mid_.x(),2)+pow(p.y()-mid_.y(),2))<=radius_){
+bool Circle::is_inside(Point2d const& p) const /*override*/{
+	if(sqrt(pow(p.x()-m_mid_.x(),2)+pow(p.y()-m_mid_.y(),2))<=m_radius_){
 		return true;
 	}else{
 		return false;
@@ -53,12 +57,11 @@ bool Circle::is_inside(Point2d const& p) const{
 }
 
 bool Circle::operator<(Circle const& rhs)const{
-	// radius_ *= 3.0;
-	return (radius_ < rhs.radius_);
+	return (m_radius_ < rhs.m_radius_);
 
 }
 
 bool Circle::operator>(Circle const& rhs)const{
-	return (radius_ > rhs.radius_);
+	return (m_radius_ > rhs.m_radius_);
 
 }
