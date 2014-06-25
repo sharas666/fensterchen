@@ -1,16 +1,16 @@
 #ifndef RECTANGLE_HPP
 #define RECTANGLE_HPP
-#define _USE_MATH_DEFINES
-#include <cmath>
-#include "window.hpp"
-#include "point2d.hpp"
+
+#include "shape.hpp"
 
 class Rectangle : public Shape{
 
 	public:
 		Rectangle();
-		Rectangle(Point2d const& left_bottom_corner, double const& angle, double const& side_a, double const& side_b, ColorRGB const& c);
-		Rectangle(Point2d const& left_bottom_corner, double const& side_a, double const& side_b, ColorRGB const& c);
+		Rectangle(Point2d const& left_bottom_corner, double const& angle, double const& side_a,
+					double const& side_b, ColorRGB const& c, std::string name);
+		Rectangle(Point2d const& left_bottom_corner, double const& side_a,
+					double const& side_b, ColorRGB const& c, std::string name);
 		~Rectangle();
 		double a() const;
 		double b() const;
@@ -22,6 +22,7 @@ class Rectangle : public Shape{
 		void draw(Window const&) const /*override*/;
 		void draw(Window const&, ColorRGB) const /*override*/;
 		bool is_inside(Point2d const& p) const /*override*/;
+		std::ostream& print(std::ostream& os) const /*override*/;
 
 	private:
 		Point2d m_left_bottom_corner_;

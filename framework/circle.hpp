@@ -1,18 +1,19 @@
 #ifndef CIRCLE_HPP
 #define CIRCLE_HPP
-#include "point2d.cpp"
-#define _USE_MATH_DEFINES
-#include <cmath>
-#include "window.hpp"
+
+
+
+
+#include "shape.hpp"
 
 
 class Circle : public Shape{
 
 	public:
 		Circle();
-		Circle(double const& rad, Point2d const& m);
-		Circle(double const& rad);
-		Circle(double const& rad, Point2d const& m, ColorRGB const&);
+		Circle(double const rad, Point2d const& m, std::string name);
+		Circle(double const rad, std::string name);
+		Circle(double const rad, Point2d const& m, ColorRGB const&, std::string name);
 		~Circle();
 		double r() const;
 		Point2d mid() const;
@@ -23,6 +24,7 @@ class Circle : public Shape{
 		bool is_inside(Point2d const& p) const /*override*/;
 		bool operator<(Circle const&)const;
 		bool operator>(Circle const&)const;
+		std::ostream& print(std::ostream& os) const /*override*/;
 
 	private:
 		double m_radius_;
