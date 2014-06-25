@@ -1,6 +1,12 @@
 #include "shape.hpp"
 
-Shape::Shape(std::string name, ColorRGB c):
+
+Shape::Shape():
+	m_name_{"standart_consrtructed_shape"},
+	m_color_{0,0,0}
+{}
+
+Shape::Shape(std::string const& name, ColorRGB c):
 	m_name_{name},
 	m_color_{c}
 {}

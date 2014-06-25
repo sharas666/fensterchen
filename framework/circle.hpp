@@ -11,9 +11,9 @@ class Circle : public Shape{
 
 	public:
 		Circle();
-		Circle(double const rad, Point2d const& m, std::string name);
-		Circle(double const rad, std::string name);
-		Circle(double const rad, Point2d const& m, ColorRGB const&, std::string name);
+		Circle(double const rad, Point2d const& m, std::string const& name);
+		Circle(double const rad, std::string const& name);
+		Circle(double const rad, Point2d const& m, ColorRGB const&, std::string const& name);
 		~Circle();
 		double r() const;
 		Point2d mid() const;

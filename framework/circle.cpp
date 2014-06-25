@@ -10,7 +10,7 @@ Circle::Circle():
 	std::cout << "Kreis " << m_name_ << " konstruiert." << std::endl;
 }
 
-Circle::Circle(double const rad, Point2d const& m, std::string name):
+Circle::Circle(double const rad, Point2d const& m, std::string const& name):
 	Shape{name,{0,0,0}},
 	m_radius_{rad},
 	m_mid_{m}
@@ -19,7 +19,7 @@ Circle::Circle(double const rad, Point2d const& m, std::string name):
 	std::cout << "Kreis " << m_name_ << " konstruiert." << std::endl;
 }
 
-Circle::Circle(double const rad, std::string name):
+Circle::Circle(double const rad, std::string const& name):
 	Shape{name,{0,0,0}},
 	m_radius_{rad},
 	m_mid_{0.0,0.0}
@@ -28,7 +28,7 @@ Circle::Circle(double const rad, std::string name):
 	std::cout << "Kreis " << m_name_ << " konstruiert." << std::endl;
 }
 
-Circle::Circle(double const rad, Point2d const& m, ColorRGB const& c, std::string name):
+Circle::Circle(double const rad, Point2d const& m, ColorRGB const& c, std::string const& name):
 	Shape{name,c},
 	m_radius_{rad},
 	m_mid_{m}

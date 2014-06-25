@@ -12,7 +12,7 @@ Rectangle::Rectangle():
 }
 
 Rectangle::Rectangle(Point2d const& m_left_bottom_corner, double const& angle, double const& side_a,
-						double const& side_b, ColorRGB const& c, std::string name):
+						double const& side_b, ColorRGB const& c, std::string const& name):
 	Shape{name, c},
 	m_left_bottom_corner_{m_left_bottom_corner},
 	m_angle_{angle},
@@ -24,7 +24,7 @@ Rectangle::Rectangle(Point2d const& m_left_bottom_corner, double const& angle, d
 }
 
 Rectangle::Rectangle(Point2d const& m_left_bottom_corner, double const& side_a,
-						double const& side_b, ColorRGB const& c, std::string name):
+						double const& side_b, ColorRGB const& c, std::string const& name):
 	Shape{name,c},
 	m_left_bottom_corner_{m_left_bottom_corner},
 	m_angle_{0},

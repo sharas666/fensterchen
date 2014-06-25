@@ -8,9 +8,9 @@ class Rectangle : public Shape{
 	public:
 		Rectangle();
 		Rectangle(Point2d const& left_bottom_corner, double const& angle, double const& side_a,
-					double const& side_b, ColorRGB const& c, std::string name);
+					double const& side_b, ColorRGB const& c, std::string const& name);
 		Rectangle(Point2d const& left_bottom_corner, double const& side_a,
-					double const& side_b, ColorRGB const& c, std::string name);
+					double const& side_b, ColorRGB const& c, std::string const& name);
 		~Rectangle();
 		double a() const;
 		double b() const;
