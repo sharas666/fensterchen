@@ -11,15 +11,18 @@
 #include <algorithm>
 
 
+
 class Shape{
 	public:
 		Shape();
 		Shape(std::string const& name, ColorRGB c);
-		virtual ~Shape();
+		Shape(std::string const& name);
+		~Shape();
 		virtual void draw(Window const& w) const = 0;
 		virtual void draw(Window const& w, ColorRGB color) const = 0;
 		virtual bool is_inside(Point2d const& p) const = 0;
 		virtual std::ostream& print(std::ostream& os) const;
+		std::string get_name() const;
 
 
 	protected:
