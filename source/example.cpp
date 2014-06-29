@@ -4,6 +4,18 @@
 #include "rectangle.hpp"
 #include "composite.hpp"
 
+
+void Composite::inside_draw(Point2d b, Window w)const{
+  draw(w);
+  for(auto i : m_vec_){
+    if (is_inside(b) && is_leave()) {
+      i->draw(w, {0,0,255});
+    }else if (is_inside(b) && !is_leave()){
+      i->inside_draw(b, w);
+    }
+  }
+}
+
 int main(int argc, char* argv[])
 {
   Window win(glm::ivec2(800,800));
@@ -17,34 +29,23 @@ int main(int argc, char* argv[])
   std::shared_ptr<Circle> kreis2 = std::make_shared<Circle>(c2);
   std::shared_ptr<Rectangle> rect1 = std::make_shared<Rectangle>(r1);
   std::shared_ptr<Rectangle> rect2 = std::make_shared<Rectangle>(r2);
+  std::shared_ptr<Composite> compptr = std::make_shared<Composite>(comp1);
 
   comp1.add_shape(kreis1);
   comp1.add_shape(kreis2);
   comp1.add_shape(rect1);
   comp1.add_shape(rect2);
 
+
   while (!win.shouldClose()) {
     if (win.isKeyPressed(GLFW_KEY_ESCAPE)) {
       win.stop();
     }
-    comp1.draw(win);
-    // auto t = win.getTime();
-    // float x1(0.5 + 0.5 * std::sin(t)); float y1(0.5 + 0.5 * std::cos(t));
-    // float x2(0.5 + 0.5 * std::sin(2.0*t)); float y2(0.5 + 0.5 * std::cos(2.0*t));
-    // float x3(0.5 + 0.5 * std::sin(t-10.f)); float y3(0.5 + 0.5 * std::cos(t-10.f));
-
-    // win.drawPoint(x1, y1, 255, 0, 0);
-    // win.drawPoint(x2, y2, 0, 255, 0);
-    // win.drawPoint(x3, y3, 0, 0, 255);
-
+  
     auto m = win.mousePosition();
-    // win.drawLine(0.1f,0.1f, 0.8f,0.1f, 255,0,0);
+    Point2d mouse{m.x,m.y};
+    comp1.inside_draw(mouse, win);
 
-    // win.drawLine(0.0f, m.y, 0.01f, m.y, 0,0,0);
-    // win.drawLine(0.99f, m.y,1.0f, m.y, 0,0,0);
-
-    // win.drawLine(m.x, 0.0f, m.x, 0.01f, 0,0,0);
-    // win.drawLine(m.x, 0.99f,m.x, 1.0f, 0,0,0);
 
     win.update();
   }

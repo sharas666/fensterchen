@@ -112,3 +112,7 @@ bool Circle::operator>(Circle const& rhs)const{
 	return (m_radius_ > rhs.m_radius_);
 
 }
+
+bool Circle::is_leave() const{
+	return true;
+}

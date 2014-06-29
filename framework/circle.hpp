@@ -25,6 +25,7 @@ class Circle : public Shape{
 		bool operator<(Circle const&)const;
 		bool operator>(Circle const&)const;
 		std::ostream& print(std::ostream& os) const /*override*/;
+		bool is_leave() const;
 
 	private:
 		double m_radius_;

@@ -23,6 +23,7 @@ class Rectangle : public Shape{
 		void draw(Window const&, ColorRGB) const /*override*/;
 		bool is_inside(Point2d const& p) const /*override*/;
 		std::ostream& print(std::ostream& os) const /*override*/;
+		bool is_leave() const;
 
 	private:
 		Point2d m_left_bottom_corner_;

@@ -37,3 +37,7 @@ void Composite::draw(Window const& w, ColorRGB color) const{
 		i->draw(w, color);
 	}
 }
+
+bool Composite::is_leave() const{
+	return false;
+}

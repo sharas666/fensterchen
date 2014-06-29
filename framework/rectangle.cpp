@@ -129,3 +129,7 @@ std::ostream& Rectangle::print(std::ostream& os) const{
 
 	return os;
 }
+
+bool Rectangle::is_leave() const{
+	return true;
+}

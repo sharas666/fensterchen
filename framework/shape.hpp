@@ -23,6 +23,7 @@ class Shape{
 		virtual bool is_inside(Point2d const& p) const = 0;
 		virtual std::ostream& print(std::ostream& os) const;
 		std::string get_name() const;
+		virtual bool is_leave() const = 0;
 
 
 	protected:
