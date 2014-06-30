@@ -41,3 +41,14 @@ void Composite::draw(Window const& w, ColorRGB color) const{
 bool Composite::is_leave() const{
 	return false;
 }
+
+void Composite::inside_draw(Window const& w, Point2d b)const{
+	draw(w);
+  	for(auto i : m_vec_){
+    	if (is_inside(b) && is_leave()) {
+     		i->draw(w, {0,0,255});
+    }else if (is_inside(b) && !is_leave()){
+      i->inside_draw(w, b);
+    }
+  }
+}

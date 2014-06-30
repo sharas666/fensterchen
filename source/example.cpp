@@ -5,19 +5,20 @@
 #include "composite.hpp"
 
 
-void Composite::inside_draw(Point2d b, Window w)const{
-  draw(w);
-  for(auto i : m_vec_){
-    if (is_inside(b) && is_leave()) {
-      i->draw(w, {0,0,255});
-    }else if (is_inside(b) && !is_leave()){
-      i->inside_draw(b, w);
-    }
-  }
-}
+
+
+
 
 int main(int argc, char* argv[])
 {
+
+  ColorRGB red(255,0,0);
+  Point2d p(0,0);
+  std::shared_ptr<Circle> s1 = std::make_shared<Circle>(1.2,p, red, "sphere0");
+  std::shared_ptr<Shape> s2 = std::make_shared<Circle>(1.2,p, red, "sphere1");
+  s1->print(std::cout);
+  s2->print(std::cout);
+
   Window win(glm::ivec2(800,800));
   Composite comp1{};
   Circle c1{0.08,{0.3,0.2},"Rad1"};
@@ -44,7 +45,7 @@ int main(int argc, char* argv[])
   
     auto m = win.mousePosition();
     Point2d mouse{m.x,m.y};
-    comp1.inside_draw(mouse, win);
+    comp1.inside_draw(win, mouse);
 
 
     win.update();

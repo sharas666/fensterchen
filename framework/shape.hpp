@@ -24,6 +24,7 @@ class Shape{
 		virtual std::ostream& print(std::ostream& os) const;
 		std::string get_name() const;
 		virtual bool is_leave() const = 0;
+		void inside_draw(Window const& w, Point2d b)const;
 
 
 	protected:

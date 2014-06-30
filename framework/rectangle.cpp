@@ -121,7 +121,7 @@ double Rectangle::circumference()const{
 
 std::ostream& Rectangle::print(std::ostream& os) const{
 	Shape::print(os);
-	std::cout << "Eckpunkt rechts unten: x = " << m_left_bottom_corner_.x() << "y = " << m_left_bottom_corner_.y() << std::endl;
+	std::cout << "Eckpunkt rechts unten: x = " << m_left_bottom_corner_.x() << ", y = " << m_left_bottom_corner_.y() << std::endl;
 	std::cout << "Seitenlänge a: " << m_sidelength_a;
 	std::cout << "Seitenlänge b: " << m_sidelength_b;
 	std::cout << "Winkel: " << m_angle_ << std::endl;

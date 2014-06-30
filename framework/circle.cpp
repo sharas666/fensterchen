@@ -98,7 +98,7 @@ void Circle::draw(Window const& window, ColorRGB color) const{
 std::ostream& Circle::print(std::ostream& os) const{
 	Shape::print(os);
 	std::cout << "Radius: " << m_radius_ << std::endl;
-	std::cout << "Mittelpunkt: x = " << m_mid_.x() << "y = " << m_mid_.y() << std::endl;
+	std::cout << "Mittelpunkt: x = " << m_mid_.x() << ", y = " << m_mid_.y() << std::endl;
 	return os;
 }
 

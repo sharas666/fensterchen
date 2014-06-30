@@ -16,7 +16,7 @@ class Composite : public Shape{
 		void draw(Window const& w) const;
 		void draw(Window const& w, ColorRGB color) const;
 		bool is_leave() const;
-		void inside_draw(Point2d b, Window w)const;
+		void inside_draw(Window const& w, Point2d b)const;
 
 	private:
 		std::vector<std::shared_ptr<Shape>> m_vec_;

@@ -37,3 +37,9 @@ std::ostream& operator<<(std::ostream& os,Shape const& s)
 	return os;
 }
 
+void Shape::inside_draw(Window const& w, Point2d b)const{
+	draw(w);
+	if (is_inside(b) && is_leave()) {
+      	draw(w, {0,0,255});
+    }
+}
